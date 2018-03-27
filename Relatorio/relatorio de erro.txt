@@ -1,0 +1,18 @@
+Add metodo panico (Parcialmente add - falta verificar)
+	modo panico com erro em double (26. 0.1)
+fazer contar linha e coluna (Done - falta verificar)
+
+anotações:
+caso encontre um erro deve-se ler obrigatoriamente
+um espaço ou uma quebra de linha ??? talvez
+
+erro recorrente:
+apos achar um erro (no caso só testado com erro de double) compilador não lê .(ponto) depois de numero mas reconhce dois numeros diferentes exemplo abaixo:
+
+23. 16.1 ---->erro no 23. mas deveria ler 16.1 mas le 16 e 1
+
+Duvida:(erro)
+compilador pode ler:
+'
+a
+'
