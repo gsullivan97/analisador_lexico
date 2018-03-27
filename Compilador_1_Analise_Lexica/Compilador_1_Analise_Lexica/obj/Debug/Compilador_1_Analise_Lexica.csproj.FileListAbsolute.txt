@@ -1,0 +1,6 @@
+D:\Workspace\Compilador_1_Analise_Lexica\Compilador_1_Analise_Lexica\bin\Debug\Compilador_1_Analise_Lexica.exe
+D:\Workspace\Compilador_1_Analise_Lexica\Compilador_1_Analise_Lexica\bin\Debug\Compilador_1_Analise_Lexica.exe.config
+D:\Workspace\Compilador_1_Analise_Lexica\Compilador_1_Analise_Lexica\obj\Debug\Compilador_1_Analise_Lexica.exe
+D:\Workspace\Compilador_1_Analise_Lexica\Compilador_1_Analise_Lexica\obj\Debug\Compilador_1_Analise_Lexica.pdb
+D:\Workspace\Compilador_1_Analise_Lexica\Compilador_1_Analise_Lexica\bin\Debug\Compilador_1_Analise_Lexica.pdb
+D:\Workspace\Compilador_1_Analise_Lexica\Compilador_1_Analise_Lexica\obj\Debug\Compilador_1_Analise_Lexica.csprojResolveAssemblyReference.cache
