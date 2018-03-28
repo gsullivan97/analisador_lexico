@@ -17,12 +17,14 @@ namespace Compilador_1_Analise_Lexica.Lexer
 
         public int coluna = 0, linha = 1;
 
+        //inicializador da função de analise
         public Analise_Lexica(String caminho, TS TabelaSimbolos)
         {
             Abrir_Arquivo(caminho);
             this.TabelaSimbolos = TabelaSimbolos;
         }
 
+        //abre o aquivo que sera lido
         public void Abrir_Arquivo(String caminho)
         {
             try
@@ -40,6 +42,7 @@ namespace Compilador_1_Analise_Lexica.Lexer
 
         }
 
+        //fecha o arquivo depois da leitura
         public void Fechar_Arquivo()
         {
             try
@@ -53,11 +56,13 @@ namespace Compilador_1_Analise_Lexica.Lexer
             }
         }
 
+        //imprime um erro na tela
         public static void GetErro(String Mensagem)
         {
             Console.WriteLine("[Erro Lexico]: " + Mensagem + "\n");
         }
 
+        //retorna o ponteiro do arquivo em uma casa
         public void RetornaPonteiro()
         {
             try
@@ -74,6 +79,8 @@ namespace Compilador_1_Analise_Lexica.Lexer
             }
         }
 
+        //verifica se o arquivo chegou ao fim
+        //true para fim de arquivo
         public static Boolean FimArquivo()
         {
             if (lookahead == fim_arquivo)
@@ -90,10 +97,13 @@ namespace Compilador_1_Analise_Lexica.Lexer
 
             while (true)
             {
+                // C sempre começa com nullo
+                //\u0000 = null
                 C = '\u0000';
 
                 try
                 {
+                    //lê uma letra do arquivo
                     lookahead = arquivo.ReadByte();
 
                     if (lookahead != fim_arquivo)
@@ -107,6 +117,8 @@ namespace Compilador_1_Analise_Lexica.Lexer
                     Console.WriteLine("Erro na leitura do arquivo \nDetalhes: " + e);
                 }
 
+                //No Switch sera testado se a palavra lida é adequada as regras
+                //foi programado conforme o automato
                 switch (estado)
                 {
                     case 1:

@@ -13,6 +13,7 @@ namespace Compilador_1_Analise_Lexica.Lexer
 
         public TS()
         {
+            //Inicia a tabela de simbolos com todas as KW defindas pelo professor
             TabelaSimbolos = new Dictionary<Token, Info_Identificador>();
 
             Token palavra;
@@ -53,6 +54,7 @@ namespace Compilador_1_Analise_Lexica.Lexer
             this.TabelaSimbolos.Add(palavra, new Info_Identificador());
         }
 
+        //Função que vai verifica se o token que foi lido pelo sistema existe ou não na tabela de simbolos
         public Token RetornaToken(String lexema)
         {
             foreach (Token token in TabelaSimbolos.Keys)
@@ -66,6 +68,7 @@ namespace Compilador_1_Analise_Lexica.Lexer
             return null;
         }
 
+        //Formatação da saida da tabela de simbolos feita pelo professor
         public String toString()
         {
             String saida = "";

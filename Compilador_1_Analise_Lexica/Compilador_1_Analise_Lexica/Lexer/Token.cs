@@ -13,6 +13,7 @@ namespace Compilador_1_Analise_Lexica.Lexer
         private int linha;
         private int coluna;
 
+        //token deve receber sua classe, lexema que foi lido e a linha e coluna que se encontrão
         public Token(Tag classe, String lexema, int linha, int coluna)
         {
             this.Classe = classe;
@@ -20,7 +21,7 @@ namespace Compilador_1_Analise_Lexica.Lexer
             this.Linha = linha;
             this.Coluna = coluna;
         }
-
+        //encapsulamento
         public string Lexema
         {
             get
@@ -73,6 +74,7 @@ namespace Compilador_1_Analise_Lexica.Lexer
             }
         }
 
+        //Formatação do professor com pequena alteração do mestre
         public String toString()
         {
             lexema = lexema.Replace("\r","\\r").Replace("\n","\\n");

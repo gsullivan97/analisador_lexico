@@ -8,6 +8,8 @@ namespace Compilador_1_Analise_Lexica.Lexer
 {
     public enum Tag
     {
+        //ENUM serve aqui para declara o tipo de token que foi recebido
+
         //FIM ARQUIVO
         EOF,
 
