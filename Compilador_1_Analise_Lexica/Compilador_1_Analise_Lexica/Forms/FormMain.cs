@@ -38,7 +38,6 @@ namespace Compilador_1_Analise_Lexica.Forms
         {
             TS TabelaSimbolos = new TS();
             Token token;
-            richTextBox1.ResetText();
 
             try
             {

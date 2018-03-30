@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Compilador_1_Analise_Lexica.Lexer;
 using Compilador_1_Analise_Lexica.Forms;
 using System.Windows.Forms;
+using Compilador_1_Analise_Lexica.Editor;
 
 namespace Compilador_1_Analise_Lexica
 {
@@ -17,7 +18,7 @@ namespace Compilador_1_Analise_Lexica
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMain());
+            Application.Run(new TextEditor());
 
             ////instancia tabela de simbolos
             //TS TabelaSimbolos = new TS();
