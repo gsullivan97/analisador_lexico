@@ -240,8 +240,6 @@ namespace Compilador_1_Analise_Lexica.Lexer
                             RetornaPonteiro();
                             return new Token(Tag.OP_ASS, "=", linha, coluna);
                         }
-                        break;
-
                     case 5:
                         if (C == '=')
                         {
@@ -251,6 +249,13 @@ namespace Compilador_1_Analise_Lexica.Lexer
                         else
                         {
                             GetErro("Padrao para diferente invalido na linha " + linha + " coluna " + coluna, ref textOutput);
+
+                            if (C == '\n')
+                            {
+                                linha++;
+                                coluna = 0;
+                            }
+
                             estado = 1;
                         }
                         break;
@@ -267,8 +272,6 @@ namespace Compilador_1_Analise_Lexica.Lexer
                             RetornaPonteiro();
                             return new Token(Tag.OP_GT, ">", linha, coluna);
                         }
-                        break;
-
                     case 10:
                         if (C == '=')
                         {
@@ -281,8 +284,6 @@ namespace Compilador_1_Analise_Lexica.Lexer
                             RetornaPonteiro();
                             return new Token(Tag.OP_LT, "<", linha, coluna);
                         }
-                        break;
-
                     case 16:
                         if (C == '*')
                         {
@@ -303,6 +304,8 @@ namespace Compilador_1_Analise_Lexica.Lexer
                     case 18:
                         if (C == '\r' || C== '\n')
                         {
+                            linha++;
+                            coluna = 0;
                             estado = 1;
                         }
                         break;
@@ -357,6 +360,12 @@ namespace Compilador_1_Analise_Lexica.Lexer
                         }
                         else
                         {
+                            if (C == '\n')
+                            {
+                                linha++;
+                                coluna = 0;
+                            }
+
                             lexema.Append(C);
                         }
                         break;
@@ -388,7 +397,7 @@ namespace Compilador_1_Analise_Lexica.Lexer
                         else
                         {
                             GetErro("Padrao para double invalido na linha " + linha + " coluna " + coluna, ref textOutput);
-                            lexema.Clear();
+                            //lexema.Clear();
                             estado = 1;
                         }
                         break;

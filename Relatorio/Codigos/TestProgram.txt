@@ -1,0 +1,12 @@
+program myProgram{
+
+	num number = 3;
+
+	if (number = 3){
+		number++;
+	}
+	else {
+		num--;
+	}
+
+}

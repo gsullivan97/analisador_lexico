@@ -38,6 +38,7 @@ namespace Compilador_1_Analise_Lexica.Editor
             richTextBox.TabIndex = 1;
             richTextBox.Text = text;
             richTextBox.AcceptsTab = true;
+            richTextBox.TextChanged += new System.EventHandler(this.richTextBox_TextChanged);
 
             #endregion
 
@@ -58,6 +59,13 @@ namespace Compilador_1_Analise_Lexica.Editor
             //labelSeparator.TabIndex = 3; 
 
             #endregion
+
+            checkAllKeywords();
+        }
+
+        private void richTextBox_TextChanged(object sender, EventArgs e)
+        {
+            checkAllKeywords();
         }
 
         private void CreateLineNumberRichTextBox()
@@ -114,6 +122,41 @@ namespace Compilador_1_Analise_Lexica.Editor
         public string getFilePath()
         {
             return filePath;
+        }
+
+        private void checkAllKeywords()
+        {
+            Color color = ColorTranslator.FromHtml("#D3B833");
+
+            CheckKeyword("program ", color, 0);
+            CheckKeyword("if ", color, 0);
+            CheckKeyword("else ", color, 0);
+            CheckKeyword("while ", color, 0);
+            CheckKeyword("write ", color, 0);
+            CheckKeyword("read ", color, 0);
+            CheckKeyword("num ", color, 0);
+            CheckKeyword("char ", color, 0);
+            CheckKeyword("not ", color, 0);
+            CheckKeyword("or ", color, 0);
+            CheckKeyword("and ", color, 0);
+            CheckKeyword("string ", color, 0);
+        }
+
+        private void CheckKeyword(string word, Color color, int startIndex)
+        {
+            if (this.richTextBox.Text.Contains(word))
+            {
+                int index = -1;
+                int selectStart = this.richTextBox.SelectionStart;
+
+                while ((index = this.richTextBox.Text.IndexOf(word, (index + 1))) != -1)
+                {
+                    this.richTextBox.Select((index + startIndex), word.Length);
+                    this.richTextBox.SelectionColor = color;
+                    this.richTextBox.Select(selectStart, 0);
+                    this.richTextBox.SelectionColor = richTextBox.ForeColor;
+                }
+            }
         }
     }
 }
