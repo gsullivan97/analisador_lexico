@@ -12,45 +12,98 @@ namespace Compilador_1_Analise_Lexica.Editor
 {
     public partial class CustomTab : TabPage
     {
-        public RichTextBox LineNumberTextBox = new RichTextBox();
+        public LineNumbers.LineNumbers_For_RichTextBox LineNumberTextBox = new LineNumbers.LineNumbers_For_RichTextBox();
         public RichTextBox richTextBox;
         private string filePath;
 
         public CustomTab(string title, string text, string _filePath)
-            :base(title)
+            : base(title)
         {
             filePath = _filePath;
 
-            LineNumberTextBox = new RichTextBox();
-            this.Controls.Add(LineNumberTextBox);
 
-            LineNumberTextBox.BorderStyle = BorderStyle.None;
-            this.LineNumberTextBox.Location = new Point(0, 0);
-            this.LineNumberTextBox.Name = "LineNumberTextBox";
-            this.LineNumberTextBox.ReadOnly = true;
-            this.LineNumberTextBox.ScrollBars = RichTextBoxScrollBars.None;
-            this.LineNumberTextBox.Size = new Size(26, 571);
-            this.LineNumberTextBox.TabIndex = 1;
-            this.LineNumberTextBox.Text = "";
-            this.LineNumberTextBox.MouseDown += new MouseEventHandler(this.LineNumberTextBox_MouseDown);
+
+            #region RichTextBox
 
             richTextBox = new RichTextBox();
+            Controls.Add(richTextBox);
+
+            richTextBox.BackColor = Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            richTextBox.BorderStyle = BorderStyle.None;
+            richTextBox.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            richTextBox.ForeColor = Color.White;
+            richTextBox.Location = new Point(30, 3);
+            richTextBox.Name = "richTextBox";
+            richTextBox.Size = new Size(800, 700);
+            richTextBox.TabIndex = 1;
             richTextBox.Text = text;
-            this.Controls.Add(richTextBox);
+            richTextBox.AcceptsTab = true;
 
-            this.richTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox.Location = new System.Drawing.Point(32, 0);
-            this.richTextBox.Name = "richTextBox";
-            this.richTextBox.Size = new System.Drawing.Size(996, 571);
-            this.richTextBox.TabIndex = 2;
-            this.richTextBox.SelectionChanged += new System.EventHandler(this.richTextBox_SelectionChanged);
-            this.richTextBox.VScroll += new System.EventHandler(this.richTextBox_VScroll);
-            this.richTextBox.FontChanged += new System.EventHandler(this.richTextBox_FontChanged);
-            this.richTextBox.TextChanged += new System.EventHandler(this.richTextBox_TextChanged);
-            AddLineNumbers();
+            #endregion
 
+            CreateLineNumberRichTextBox();
 
-            //richTextBox.Dock = DockStyle.Fill;
+            #region LabelSeparator
+
+            //labelSeparator = new Label();
+            //Controls.Add(labelSeparator);
+
+            //// 
+            //// label7
+            //// 
+            //labelSeparator.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            //labelSeparator.Location = new System.Drawing.Point(28, 4);
+            //labelSeparator.Name = "labelSeparator";
+            //labelSeparator.Size = new System.Drawing.Size(2, 700);
+            //labelSeparator.TabIndex = 3; 
+
+            #endregion
+        }
+
+        private void CreateLineNumberRichTextBox()
+        {
+            #region LineNumberTextBox
+
+            LineNumberTextBox = new LineNumbers.LineNumbers_For_RichTextBox();
+            Controls.Add(LineNumberTextBox);
+
+            LineNumberTextBox._SeeThroughMode_ = false;
+            LineNumberTextBox.AutoSizing = true;
+            LineNumberTextBox.BackgroundGradient_AlphaColor = System.Drawing.Color.Empty;
+            LineNumberTextBox.BackgroundGradient_BetaColor = System.Drawing.Color.Empty;
+            LineNumberTextBox.BackgroundGradient_Direction = System.Drawing.Drawing2D.LinearGradientMode.Horizontal;
+            LineNumberTextBox.BorderLines_Color = System.Drawing.Color.Empty;
+            LineNumberTextBox.BorderLines_Style = System.Drawing.Drawing2D.DashStyle.Dot;
+            LineNumberTextBox.BorderLines_Thickness = 1F;
+            LineNumberTextBox.DockSide = LineNumbers.LineNumbers_For_RichTextBox.LineNumberDockSide.Left;
+            LineNumberTextBox.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            LineNumberTextBox.GridLines_Color = System.Drawing.Color.Empty;
+            LineNumberTextBox.GridLines_Style = System.Drawing.Drawing2D.DashStyle.Solid;
+            LineNumberTextBox.GridLines_Thickness = 1F;
+            LineNumberTextBox.LineNrs_Alignment = System.Drawing.ContentAlignment.TopRight;
+            LineNumberTextBox.LineNrs_AntiAlias = true;
+            LineNumberTextBox.LineNrs_AsHexadecimal = false;
+            LineNumberTextBox.LineNrs_ClippedByItemRectangle = true;
+            LineNumberTextBox.LineNrs_LeadingZeroes = true;
+            LineNumberTextBox.LineNrs_Offset = new System.Drawing.Size(0, 0);
+            LineNumberTextBox.Location = new Point(3, 3);
+            LineNumberTextBox.Margin = new System.Windows.Forms.Padding(0);
+            LineNumberTextBox.MarginLines_Color = System.Drawing.Color.Empty;
+            LineNumberTextBox.MarginLines_Side = LineNumbers.LineNumbers_For_RichTextBox.LineNumberDockSide.Right;
+            LineNumberTextBox.MarginLines_Style = System.Drawing.Drawing2D.DashStyle.Solid;
+            LineNumberTextBox.MarginLines_Thickness = 1F;
+            LineNumberTextBox.Name = "LineNumberTextBox";
+            LineNumberTextBox.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
+            LineNumberTextBox.ParentRichTextBox = richTextBox;
+            LineNumberTextBox.Show_BackgroundGradient = true;
+            LineNumberTextBox.Show_BorderLines = true;
+            LineNumberTextBox.Show_GridLines = true;
+            LineNumberTextBox.Show_LineNrs = true;
+            LineNumberTextBox.Show_MarginLines = true;
+            LineNumberTextBox.Size = new Size(40, 695);
+            LineNumberTextBox.TabIndex = 0;
+
+            #endregion
         }
 
         public RichTextBox getRichTextBox()
@@ -61,90 +114,6 @@ namespace Compilador_1_Analise_Lexica.Editor
         public string getFilePath()
         {
             return filePath;
-        }
-
-        private void LineNumberTextBox_MouseDown(object sender, MouseEventArgs e)
-        {
-            richTextBox.Select();
-            LineNumberTextBox.DeselectAll();
-        }
-
-        private void richTextBox_SelectionChanged(object sender, EventArgs e)
-        {
-            Point pt = richTextBox.GetPositionFromCharIndex(richTextBox.SelectionStart);
-            if (pt.X == 1)
-            {
-                AddLineNumbers();
-            }
-        }
-
-        private void richTextBox_VScroll(object sender, EventArgs e)
-        {
-            LineNumberTextBox.Text = "";
-            AddLineNumbers();
-            LineNumberTextBox.Invalidate();
-        }
-
-        private void richTextBox_TextChanged(object sender, EventArgs e)
-        {
-            if (richTextBox.Text == "")
-            {
-                AddLineNumbers();
-            }
-        }
-
-        private void richTextBox_FontChanged(object sender, EventArgs e)
-        {
-            LineNumberTextBox.Font = richTextBox.Font;
-            richTextBox.Select();
-            AddLineNumbers();
-        }
-
-        public void AddLineNumbers()
-        {
-            // create & set Point pt to (0,0)    
-            Point pt = new Point(0, 0);
-            // get First Index & First Line from richTextBox    
-            int First_Index = richTextBox.GetCharIndexFromPosition(pt);
-            int First_Line = richTextBox.GetLineFromCharIndex(First_Index);
-            // set X & Y coordinates of Point pt to ClientRectangle Width & Height respectively    
-            pt.X = ClientRectangle.Width;
-            pt.Y = ClientRectangle.Height;
-            // get Last Index & Last Line from richTextBox    
-            int Last_Index = richTextBox.GetCharIndexFromPosition(pt);
-            int Last_Line = richTextBox.GetLineFromCharIndex(Last_Index >= 1 ? Last_Index + 1 : Last_Index);
-            // set Center alignment to LineNumberTextBox    
-            LineNumberTextBox.SelectionAlignment = HorizontalAlignment.Center;
-            // set LineNumberTextBox text to null & width to getWidth() function value    
-            LineNumberTextBox.Text = "";
-            LineNumberTextBox.Width = getWidth();
-            // now add each line number to LineNumberTextBox upto last line    
-            for (int i = First_Line; i <= Last_Line; i++)
-            {
-                LineNumberTextBox.Text += i + 1 + "\n";
-            }
-        }
-
-        public int getWidth()
-        {
-            int w = 25;
-            // get total lines of richTextBox    
-            int line = richTextBox.Lines.Length;
-
-            if (line <= 99)
-            {
-                w = 20 + (int)richTextBox.Font.Size;
-            }
-            else if (line <= 999)
-            {
-                w = 30 + (int)richTextBox.Font.Size;
-            }
-            else
-            {
-                w = 50 + (int)richTextBox.Font.Size;
-            }
-
-            return w;
         }
     }
 }

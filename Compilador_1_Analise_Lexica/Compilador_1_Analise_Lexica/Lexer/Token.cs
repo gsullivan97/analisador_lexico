@@ -13,13 +13,16 @@ namespace Compilador_1_Analise_Lexica.Lexer
         private int linha;
         private int coluna;
 
+        public string error { get; set; }
+
         //token deve receber sua classe, lexema que foi lido e a linha e coluna que se encontrão
-        public Token(Tag classe, String lexema, int linha, int coluna)
+        public Token(Tag classe, String lexema, int linha, int coluna, string error = "")
         {
             this.Classe = classe;
             this.Lexema = lexema;
             this.Linha = linha;
             this.Coluna = coluna;
+            this.error = error;
         }
         //encapsulamento
         public string Lexema
