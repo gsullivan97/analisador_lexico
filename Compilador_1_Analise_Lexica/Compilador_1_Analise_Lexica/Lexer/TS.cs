@@ -65,6 +65,10 @@ namespace Compilador_1_Analise_Lexica.Lexer
                 }
             }
 
+            //caso nao ache o ID na tabela de simbolos add ele na mesma
+            Token palavra = new Token(Tag.ID, lexema, 0, 0);
+            this.TabelaSimbolos.Add(palavra, new Info_Identificador());
+
             return null;
         }
 
