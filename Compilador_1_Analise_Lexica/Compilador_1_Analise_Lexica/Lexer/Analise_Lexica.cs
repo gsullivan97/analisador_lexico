@@ -5,8 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Drawing;
-using ExtensionMethods;
 
 namespace Compilador_1_Analise_Lexica.Lexer
 {
@@ -60,13 +58,13 @@ namespace Compilador_1_Analise_Lexica.Lexer
         }
 
         //imprime um erro na tela
-        public static void GetErro(String Mensagem, ref RichTextBox textOutput)
+        public static void GetErro(String Mensagem, ref RichTextBox textError)
         {
             //Console.WriteLine("[Erro Lexico]: " + Mensagem + "\n");
 
             var msg = "Erro Lexico: " + Mensagem + "\n";
 
-            textOutput.Text += msg;
+            textError.Text += msg;
         }
 
         //retorna o ponteiro do arquivo em uma casa
@@ -96,7 +94,7 @@ namespace Compilador_1_Analise_Lexica.Lexer
                 return false;
         }
 
-        public Token ProximoToken(ref RichTextBox textOutput)
+        public Token ProximoToken(ref RichTextBox textOutput, ref RichTextBox textError)
         {
             StringBuilder lexema = new StringBuilder();
             int estado = 1;
@@ -248,7 +246,7 @@ namespace Compilador_1_Analise_Lexica.Lexer
                         }
                         else
                         {
-                            GetErro("Padrao para diferente invalido na linha " + linha + " coluna " + coluna, ref textOutput);
+                            GetErro("Padrao para diferente invalido na linha " + linha + " coluna " + coluna, ref textError);
 
                             if (C == '\n')
                             {
@@ -355,7 +353,7 @@ namespace Compilador_1_Analise_Lexica.Lexer
                         }
                         else if (FimArquivo())
                         {
-                            GetErro("Padrao para literal invalido na linha " + linha + " coluna " + coluna, ref textOutput);
+                            GetErro("Padrao para literal invalido na linha " + linha + " coluna " + coluna, ref textError);
                             return null;
                         }
                         else
@@ -396,7 +394,7 @@ namespace Compilador_1_Analise_Lexica.Lexer
                         }
                         else
                         {
-                            GetErro("Padrao para double invalido na linha " + linha + " coluna " + coluna, ref textOutput);
+                            GetErro("Padrao para double invalido na linha " + linha + " coluna " + coluna, ref textError);
                             //lexema.Clear();
                             estado = 1;
                         }
@@ -427,7 +425,7 @@ namespace Compilador_1_Analise_Lexica.Lexer
                         }
                         else
                         {
-                            GetErro("Padrao para constante char invalido na linha " + linha + " coluna " + coluna, ref textOutput);
+                            GetErro("Padrao para constante char invalido na linha " + linha + " coluna " + coluna, ref textError);
                             return null;
                         }
                 }

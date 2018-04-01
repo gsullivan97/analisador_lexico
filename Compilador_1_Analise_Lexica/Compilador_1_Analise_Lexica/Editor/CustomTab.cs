@@ -14,14 +14,13 @@ namespace Compilador_1_Analise_Lexica.Editor
     {
         public LineNumbers.LineNumbers_For_RichTextBox LineNumberTextBox = new LineNumbers.LineNumbers_For_RichTextBox();
         public RichTextBox richTextBox;
+        public PanelError panelError;
         private string filePath;
 
-        public CustomTab(string title, string text, string _filePath)
+        public CustomTab(string title, string text, string _filePath, TextEditor textError)
             : base(title)
         {
             filePath = _filePath;
-
-
 
             #region RichTextBox
 
@@ -34,38 +33,43 @@ namespace Compilador_1_Analise_Lexica.Editor
             richTextBox.ForeColor = Color.White;
             richTextBox.Location = new Point(30, 3);
             richTextBox.Name = "richTextBox";
-            richTextBox.Size = new Size(800, 700);
             richTextBox.TabIndex = 1;
+            richTextBox.Size = new Size(800, 700);
             richTextBox.Text = text;
             richTextBox.AcceptsTab = true;
-            richTextBox.TextChanged += new System.EventHandler(this.richTextBox_TextChanged);
+            richTextBox.Dock = DockStyle.Right;
+            richTextBox.TextChanged += new EventHandler(this.richTextBox_TextChanged);
+            richTextBox.MouseClick += new MouseEventHandler(this.richTextBox_MouseClick);
+
+            #endregion
+
+            #region Panel Error
+
+            panelError = new PanelError();
+            Controls.Add(panelError);
+
+            this.panelError.Dock = DockStyle.Bottom;
+            this.panelError.Location = new Point(0, 510);
+            this.panelError.Name = "panelError";
+            this.panelError.Size = new Size(827, 195);
+            this.panelError.TabIndex = 0;
+            panelError.AutoSize = true; 
 
             #endregion
 
             CreateLineNumberRichTextBox();
-
-            #region LabelSeparator
-
-            //labelSeparator = new Label();
-            //Controls.Add(labelSeparator);
-
-            //// 
-            //// label7
-            //// 
-            //labelSeparator.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            //labelSeparator.Location = new System.Drawing.Point(28, 4);
-            //labelSeparator.Name = "labelSeparator";
-            //labelSeparator.Size = new System.Drawing.Size(2, 700);
-            //labelSeparator.TabIndex = 3; 
-
-            #endregion
 
             checkAllKeywords();
         }
 
         private void richTextBox_TextChanged(object sender, EventArgs e)
         {
-            checkAllKeywords();
+            //checkAllKeywords();
+        }
+
+        private void richTextBox_MouseClick(object sender, EventArgs e)
+        {
+            panelError.hidePanels();
         }
 
         private void CreateLineNumberRichTextBox()
@@ -157,6 +161,11 @@ namespace Compilador_1_Analise_Lexica.Editor
                     this.richTextBox.SelectionColor = richTextBox.ForeColor;
                 }
             }
+        }
+
+        public void OpenError()
+        {
+            panelError.Show();
         }
     }
 }

@@ -17,8 +17,10 @@ namespace Compilador_1_Analise_Lexica.Editor
         private string fileOpenNow = "";
         private RichTextBox richTextBox = new RichTextBox();
         RichTextBox textOutput = new RichTextBox();
+        RichTextBox textError = new RichTextBox();
 
         public RichTextBox RichOutput { get { return textOutput; } }
+        public RichTextBox RichError { get { return textError; } }
 
         private Point _imageLocation = new Point(13, 5);
         private Point _imgHitArea = new Point(13, 2);
@@ -86,7 +88,7 @@ namespace Compilador_1_Analise_Lexica.Editor
         private void label6_Click(object sender, EventArgs e)
         {
             RunFile();
-        } 
+        }
 
         #endregion
 
@@ -171,7 +173,7 @@ namespace Compilador_1_Analise_Lexica.Editor
             }
 
             showHideItens();
-        } 
+        }
 
         #endregion
 
@@ -210,16 +212,15 @@ namespace Compilador_1_Analise_Lexica.Editor
         private void pictureBox8_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        } 
+        }
 
         #endregion
-        
 
         #region Actions Files
 
         private void NewFile()
         {
-            var tabControl = new CustomTab("New file", "", "");
+            var tabControl = new CustomTab("New file", "", "", this);
             richTextBox = tabControl.getRichTextBox();
 
             tabControl1.TabPages.Add(tabControl);
@@ -235,7 +236,7 @@ namespace Compilador_1_Analise_Lexica.Editor
             ofd.CheckFileExists = true;
             ofd.CheckPathExists = true;
             ofd.DefaultExt = "txt";
-            ofd.Filter = "Text files (*.txt)|*.txt";
+            ofd.Filter = "Megazord files (*.mgzd)|*.mgzd";
             ofd.FilterIndex = 2;
             ofd.RestoreDirectory = true;
             ofd.ReadOnlyChecked = true;
@@ -249,7 +250,7 @@ namespace Compilador_1_Analise_Lexica.Editor
 
                 string filenameWithoutPath = Path.GetFileName(ofd.FileName);
 
-                var tabControl = new CustomTab(filenameWithoutPath, sr.ReadToEnd(), fileOpenNow);
+                var tabControl = new CustomTab(filenameWithoutPath, sr.ReadToEnd(), fileOpenNow, this);
                 richTextBox = tabControl.getRichTextBox();
 
                 tabControl1.TabPages.Add(tabControl);
@@ -264,6 +265,7 @@ namespace Compilador_1_Analise_Lexica.Editor
             TS TabelaSimbolos = new TS();
             Token token;
             textOutput.Clear();
+            textError.Clear(); 
 
             if (string.IsNullOrEmpty(fileOpenNow))
             {
@@ -277,7 +279,7 @@ namespace Compilador_1_Analise_Lexica.Editor
                 do
                 {
                     //chamda parao proximo token que sera lido
-                    token = analise.ProximoToken(ref textOutput);
+                    token = analise.ProximoToken(ref textOutput, ref textError);
 
                     if (token != null)
                     {
@@ -291,10 +293,23 @@ namespace Compilador_1_Analise_Lexica.Editor
                 textOutput.Text += "Tabela de simbolos: \n";
                 textOutput.Text += TabelaSimbolos.toString();
 
-                var outputForm = new OutputForm(this);
-                outputForm.Show();
+                CustomTab customTab = (CustomTab)tabControl1.TabPages[tabControl1.SelectedIndex];
 
-                tabControl1.SelectedIndex = tabControl1.TabCount - 1;
+                customTab.panelError.getRichOutput.Text = textOutput.Text;
+                customTab.panelError.showOutput();
+                customTab.panelError.setColorDetailOutput();
+
+                if (!string.IsNullOrEmpty(textError.Text))
+                {
+                    customTab.panelError.getRichError.Text = textError.Text;
+                    customTab.panelError.setColorDetailError("#F03434");
+                }
+                //customTab.panelError.showError();
+
+                //var outputForm = new OutputForm(this);
+                //outputForm.Show();
+
+                //tabControl1.SelectedIndex = tabControl1.TabCount - 1;
 
                 //fecha o arquivo depos de ter terminado a analise
                 analise.Fechar_Arquivo();
@@ -313,7 +328,7 @@ namespace Compilador_1_Analise_Lexica.Editor
             else
             {
                 SaveFileDialog svf = new SaveFileDialog();
-                svf.Filter = "Text files (*.txt)|*.txt";
+                svf.Filter = "Megazord files (*.mgzd)|*.mgzd";
                 svf.Title = "Save File";
 
                 if (svf.ShowDialog() == DialogResult.OK)
@@ -331,7 +346,7 @@ namespace Compilador_1_Analise_Lexica.Editor
                     sw.Close();
                 }
             }
-        } 
+        }
 
         #endregion
     }

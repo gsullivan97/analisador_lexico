@@ -33,16 +33,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Editor\CustomTab.cs">
@@ -57,18 +61,17 @@
     <Compile Include="Editor\OutputForm.Designer.cs">
       <DependentUpon>OutputForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Editor\RichTextBoxExtensions.cs" />
+    <Compile Include="Editor\PanelError.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\PanelError.Designer.cs">
+      <DependentUpon>PanelError.cs</DependentUpon>
+    </Compile>
     <Compile Include="Editor\TextEditor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Editor\TextEditor.Designer.cs">
       <DependentUpon>TextEditor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FormMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormMain.Designer.cs">
-      <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Lexer\Analise_Lexica.cs" />
     <Compile Include="Lexer\Info_Identificador.cs" />
@@ -93,11 +96,11 @@
     <EmbeddedResource Include="Editor\OutputForm.resx">
       <DependentUpon>OutputForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Editor\PanelError.resx">
+      <DependentUpon>PanelError.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Editor\TextEditor.resx">
       <DependentUpon>TextEditor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormMain.resx">
-      <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

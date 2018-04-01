@@ -1,11 +1,4 @@
 ﻿using System;
-using System.IO;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Compilador_1_Analise_Lexica.Lexer;
-using Compilador_1_Analise_Lexica.Forms;
 using System.Windows.Forms;
 using Compilador_1_Analise_Lexica.Editor;
 
