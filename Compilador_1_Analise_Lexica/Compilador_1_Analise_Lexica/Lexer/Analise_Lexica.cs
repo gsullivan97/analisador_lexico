@@ -224,6 +224,10 @@ namespace Compilador_1_Analise_Lexica.Lexer
                         {
                             estado = 16;
                         }
+                        else
+                        {
+                            GetErro("Simbolo não reconhecido pelo analisador, " + linha + " coluna " + coluna, ref textOutput);
+                        }
                         break;
 
                     case 2:
@@ -395,8 +399,11 @@ namespace Compilador_1_Analise_Lexica.Lexer
                         else
                         {
                             GetErro("Padrao para double invalido na linha " + linha + " coluna " + coluna, ref textError);
-                            //lexema.Clear();
+                            lexema.Clear();
                             estado = 1;
+
+                            //modo panico do professor(comentar as duas linhas acima para testar)
+                            //estado = 33;
                         }
                         break;
                     case 34:
