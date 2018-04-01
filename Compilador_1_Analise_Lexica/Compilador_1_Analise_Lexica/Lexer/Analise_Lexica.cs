@@ -403,6 +403,10 @@ namespace Compilador_1_Analise_Lexica.Lexer
                             GetErro("Padrao para double invalido na linha " + linha + " coluna " + coluna, ref textOutput);
                             lexema.Clear();
                             estado = 1;
+
+                            //modo panico do professor(comentar as duas linhas acima para testar)
+                            //estado = 33;
+
                         }
                         break;
                     case 34:
