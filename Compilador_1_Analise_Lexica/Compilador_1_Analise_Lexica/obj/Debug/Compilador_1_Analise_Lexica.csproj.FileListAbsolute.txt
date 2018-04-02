@@ -41,3 +41,4 @@ D:\Workspace\analisador_lexico\Compilador_1_Analise_Lexica\Compilador_1_Analise_
 D:\Workspace\analisador_lexico\Compilador_1_Analise_Lexica\Compilador_1_Analise_Lexica\obj\Debug\Compilador_1_Analise_Lexica.pdb
 >>>>>>> 2b2a2686b6ff8a7c838fda2089fbb7b130becadb
 C:\Users\Rizzon\Documents\GitHub\analisador_lexico\Compilador_1_Analise_Lexica\Compilador_1_Analise_Lexica\obj\Debug\Compilador_1_Analise_Lexica.csprojResolveAssemblyReference.cache
+D:\Workspace\analisador_lexico\Compilador_1_Analise_Lexica\Compilador_1_Analise_Lexica\obj\Debug\Compilador_1_Analise_Lexica.Editor.PanelError.resources
