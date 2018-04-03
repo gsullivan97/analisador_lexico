@@ -265,7 +265,12 @@ namespace Compilador_1_Analise_Lexica.Editor
             TS TabelaSimbolos = new TS();
             Token token;
             textOutput.Clear();
-            textError.Clear(); 
+            textError.Clear();
+
+            CustomTab customTab = (CustomTab)tabControl1.TabPages[tabControl1.SelectedIndex];
+
+            customTab.panelError.getRichOutput.Text = "";
+            customTab.panelError.getRichError.Text = "";
 
             if (string.IsNullOrEmpty(fileOpenNow))
             {
@@ -293,16 +298,13 @@ namespace Compilador_1_Analise_Lexica.Editor
                 textOutput.Text += "Tabela de simbolos: \n";
                 textOutput.Text += TabelaSimbolos.toString();
 
-                CustomTab customTab = (CustomTab)tabControl1.TabPages[tabControl1.SelectedIndex];
-
                 customTab.panelError.getRichOutput.Text = textOutput.Text;
+                customTab.panelError.hideError();
                 customTab.panelError.showOutput();
-                customTab.panelError.setColorDetailOutput();
 
                 if (!string.IsNullOrEmpty(textError.Text))
                 {
                     customTab.panelError.getRichError.Text = textError.Text;
-                    customTab.panelError.setColorDetailError("#F03434");
                 }
                 //customTab.panelError.showError();
 

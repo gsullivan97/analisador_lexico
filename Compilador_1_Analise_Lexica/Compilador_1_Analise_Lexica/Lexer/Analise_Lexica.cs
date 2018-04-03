@@ -226,7 +226,7 @@ namespace Compilador_1_Analise_Lexica.Lexer
                         }
                         else
                         {
-                            GetErro("Simbolo não reconhecido pelo analisador, " + linha + " coluna " + coluna, ref textOutput);
+                            GetErro("Simbolo não reconhecido pelo analisador, " + linha + " coluna " + coluna, ref textError);
                         }
                         break;
 

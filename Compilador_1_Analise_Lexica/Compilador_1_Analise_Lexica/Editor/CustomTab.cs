@@ -138,11 +138,6 @@ namespace Compilador_1_Analise_Lexica.Editor
             CheckKeyword("while ", color, 0);
             CheckKeyword("write ", color, 0);
             CheckKeyword("read ", color, 0);
-            CheckKeyword("num ", color, 0);
-            CheckKeyword("char ", color, 0);
-            CheckKeyword("not ", color, 0);
-            CheckKeyword("or ", color, 0);
-            CheckKeyword("and ", color, 0);
             CheckKeyword("string ", color, 0);
         }
 

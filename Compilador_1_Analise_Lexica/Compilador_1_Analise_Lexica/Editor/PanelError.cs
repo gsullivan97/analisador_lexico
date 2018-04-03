@@ -121,7 +121,7 @@ namespace Compilador_1_Analise_Lexica.Editor
                 if (!string.IsNullOrEmpty(richTextBox1.Text))
                     color = ColorTranslator.FromHtml("#F03434");
                 else
-                    color = ColorTranslator.FromHtml("#D3B833");
+                    color = Color.DimGray;
 
                 detailError.BackColor = color;
             }
@@ -143,13 +143,13 @@ namespace Compilador_1_Analise_Lexica.Editor
 
         private void button1_MouseHover(object sender, EventArgs e)
         {
-            setColorDetailError();
+            Color color = ColorTranslator.FromHtml("#D3B833");
+            detailError.BackColor = color;
         }
 
         private void button1_MouseLeave(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(richTextBox1.Text))
-                detailError.BackColor = Color.DimGray;
+            detailError.BackColor = Color.DimGray;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -159,7 +159,8 @@ namespace Compilador_1_Analise_Lexica.Editor
 
         private void button2_MouseHover(object sender, EventArgs e)
         {
-            setColorDetailOutput();
+            Color color = ColorTranslator.FromHtml("#D3B833");
+            detailOutput.BackColor = color;
         }
 
         private void button2_MouseLeave(object sender, EventArgs e)

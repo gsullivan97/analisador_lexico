@@ -3,13 +3,13 @@ program Teste1Correto {
 	teste = "teste de string";
 	num1 = 54;
 	soma = soma + 15.5;
-	Char = 'c';
-	if(5>=5 and teste == 1)
+	Char = 'casa';
+	if (5>=5 and teste == 1)
 	{
 		printf("O monstro esta vindo!!!!");
 	}
 	else 
 	{
-		return "Esperer por ele";
+		return "Esperar por ele";
 	}
 }
