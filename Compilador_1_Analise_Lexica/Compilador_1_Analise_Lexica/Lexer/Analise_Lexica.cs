@@ -114,7 +114,6 @@ namespace Compilador_1_Analise_Lexica.Lexer
                     if (lookahead != fim_arquivo)
                     {
                         C = (char)lookahead;
-                        C = char.ToLower(C);
                         coluna++;
                     }
                 }
@@ -228,6 +227,7 @@ namespace Compilador_1_Analise_Lexica.Lexer
                         else
                         {
                             GetErro("Simbolo não reconhecido pelo analisador, " + linha + " coluna " + coluna, ref textError);
+                            estado = 1;
                         }
                         break;
 
@@ -251,7 +251,7 @@ namespace Compilador_1_Analise_Lexica.Lexer
                         }
                         else
                         {
-                            GetErro("Padrao para diferente invalido na linha " + linha + " coluna " + coluna, ref textError);
+                            GetErro("Padrao para diferente(!=) invalido na linha " + linha + " coluna " + coluna, ref textError);
 
                             if (C == '\n')
                             {
@@ -259,7 +259,7 @@ namespace Compilador_1_Analise_Lexica.Lexer
                                 coluna = 0;
                             }
 
-                            estado = 1;
+                            estado = 5;
                         }
                         break;
 
@@ -339,11 +339,11 @@ namespace Compilador_1_Analise_Lexica.Lexer
                         {
                             estado = 28;
                             RetornaPonteiro();
-                            Token token = TabelaSimbolos.RetornaToken(lexema.ToString());
+                            Token token = TabelaSimbolos.RetornaToken(lexema.ToString().ToLower());
 
                             if (token == null)
                             {
-                                return new Token(Tag.ID, lexema.ToString(), linha, coluna);
+                                return new Token(Tag.ID, lexema.ToString().ToLower(), linha, coluna);
                             }
 
                             return token;
@@ -356,18 +356,24 @@ namespace Compilador_1_Analise_Lexica.Lexer
                             GetErro("Padrao para literal invalido na linha " + linha + " coluna " + coluna, ref textError);
                             linha++;
                             coluna = 0;
+                            estado = 29;
+                        }
+                        else if (C < 128)
+                        {
+                            estado = 30;
+                            lexema.Append(C);
                         }
                         else
                         {
-                            estado = 41;
-                            lexema.Append(C);
+                            GetErro("Padrao para literal invalido na linha " + linha + " coluna " + coluna, ref textError);
+                            estado = 29;
                         }
                         break;
 
-                    case 41:
+                    case 30:
                         if (C == '\"')
                         {
-                            estado = 30;
+                            estado = 41;
                             return new Token(Tag.LIT, lexema.ToString(), linha, coluna);
                         }
                         else if (FimArquivo())
@@ -375,14 +381,22 @@ namespace Compilador_1_Analise_Lexica.Lexer
                             GetErro("Padrao para literal invalido na linha " + linha + " coluna " + coluna, ref textError);
                             return null;
                         }
+                        else if (C == '\n')
+                        {
+                            GetErro("Padrao para literal invalido na linha " + linha + " coluna " + coluna, ref textError);
+                            linha++;
+                            coluna = 0;
+                            estado = 30;
+                        }
+                        else if (C < 128)
+                        {
+                            estado = 30;
+                            lexema.Append(C);
+                        }
                         else
                         {
-                            if (C == '\n')
-                            {
-                                GetErro("Padrao para literal invalido na linha " + linha + " coluna " + coluna, ref textError);
-                                linha++;
-                                coluna = 0;
-                            }
+                            GetErro("Padrao para literal invalido na linha " + linha + " coluna " + coluna, ref textError);
+                            estado = 30;
                         }
                         break;
 
@@ -413,11 +427,7 @@ namespace Compilador_1_Analise_Lexica.Lexer
                         else
                         {
                             GetErro("Padrao para double invalido na linha " + linha + " coluna " + coluna, ref textError);
-                            lexema.Clear();
-                            estado = 1;
-
-                            //modo panico do professor(comentar as duas linhas acima para testar)
-                            //estado = 33;
+                            estado = 33;
                         }
                         break;
                     case 34:
@@ -434,8 +444,16 @@ namespace Compilador_1_Analise_Lexica.Lexer
                         break;
 
                     case 36:
-                        estado = 37;
-                        lexema.Append(C);
+                        if (C < 128)
+                        {
+                            estado = 37;
+                            lexema.Append(C);
+                        }
+                        else
+                        {
+                            GetErro("Padrao para constante char invalido na linha " + linha + " coluna " + coluna, ref textError);
+                            estado = 36;
+                        }
                         break;
 
                     case 37:
@@ -447,8 +465,9 @@ namespace Compilador_1_Analise_Lexica.Lexer
                         else
                         {
                             GetErro("Padrao para constante char invalido na linha " + linha + " coluna " + coluna, ref textError);
-                            return null;
+                            estado = 37;
                         }
+                        break;
                 }
             }
         }
