@@ -77,10 +77,8 @@ namespace Compilador_1_Analise_Lexica.Lexer
             }
         }
 
-        //Formatação do professor com pequena alteração do mestre
         public String toString()
         {
-            lexema = lexema.Replace("\r","\\r").Replace("\n","\\n");
             return "<" + classe + ", \"" + lexema + "\">";
         }
 
