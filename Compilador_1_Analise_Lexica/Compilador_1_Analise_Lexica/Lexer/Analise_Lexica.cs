@@ -114,6 +114,7 @@ namespace Compilador_1_Analise_Lexica.Lexer
                     if (lookahead != fim_arquivo)
                     {
                         C = (char)lookahead;
+                        C = char.ToLower(C);
                         coluna++;
                     }
                 }
@@ -129,7 +130,7 @@ namespace Compilador_1_Analise_Lexica.Lexer
                     case 1:
                         if (FimArquivo())
                             return new Token(Tag.EOF, "EOF", linha, coluna);
-                        else if (C == ' ' || C == '\n' || C == '\t' || C == '\r')//REVISAR
+                        else if (C == ' ' || C == '\n' || C == '\t' || C == '\r')
                         {
                             if (C == '\n')
                             {
@@ -364,11 +365,10 @@ namespace Compilador_1_Analise_Lexica.Lexer
                         {
                             if (C == '\n')
                             {
+                                GetErro("Padrao para literal invalido na linha " + linha + " coluna " + coluna, ref textError);
                                 linha++;
                                 coluna = 0;
                             }
-
-                            lexema.Append(C);
                         }
                         break;
 
