@@ -354,7 +354,7 @@ namespace Compilador_1_Analise_Lexica.Lexer
                     case 29:
                         if (C == '\n')
                         {
-                            GetErro("Padrao para literal invalido na linha " + linha + " coluna " + coluna, ref textError);
+                            GetErro("Padrao para literal invalido na linha " + linha + " coluna " + coluna, ref textOutput, ref textError);
                             linha++;
                             coluna = 0;
                             estado = 29;
@@ -366,7 +366,7 @@ namespace Compilador_1_Analise_Lexica.Lexer
                         }
                         else
                         {
-                            GetErro("Padrao para literal invalido na linha " + linha + " coluna " + coluna, ref textError);
+                            GetErro("Padrao para literal invalido na linha " + linha + " coluna " + coluna, ref textOutput, ref textError);
                             estado = 29;
                         }
                         break;
@@ -384,7 +384,7 @@ namespace Compilador_1_Analise_Lexica.Lexer
                         }
                         else if (C == '\n')
                         {
-                            GetErro("Padrao para literal invalido na linha " + linha + " coluna " + coluna, ref textError);
+                            GetErro("Padrao para literal invalido na linha " + linha + " coluna " + coluna, ref textOutput, ref textError);
                             linha++;
                             coluna = 0;
                             estado = 30;
@@ -396,7 +396,7 @@ namespace Compilador_1_Analise_Lexica.Lexer
                         }
                         else
                         {
-                            GetErro("Padrao para literal invalido na linha " + linha + " coluna " + coluna, ref textError);
+                            GetErro("Padrao para literal invalido na linha " + linha + " coluna " + coluna, ref textOutput, ref textError);
                             estado = 30;
                         }
                         break;
@@ -452,7 +452,7 @@ namespace Compilador_1_Analise_Lexica.Lexer
                         }
                         else
                         {
-                            GetErro("Padrao para constante char invalido na linha " + linha + " coluna " + coluna, ref textError);
+                            GetErro("Padrao para constante char invalido na linha " + linha + " coluna " + coluna, ref textOutput, ref textError);
                             estado = 36;
                         }
                         break;
