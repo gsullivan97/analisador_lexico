@@ -351,6 +351,20 @@ namespace Compilador_1_Analise_Lexica.Lexer
                         break;
 
                     case 29:
+                        if (C == '\n')
+                        {
+                            GetErro("Padrao para literal invalido na linha " + linha + " coluna " + coluna, ref textError);
+                            linha++;
+                            coluna = 0;
+                        }
+                        else
+                        {
+                            estado = 41;
+                            lexema.Append(C);
+                        }
+                        break;
+
+                    case 41:
                         if (C == '\"')
                         {
                             estado = 30;
