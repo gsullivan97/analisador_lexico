@@ -220,6 +220,9 @@ namespace Compilador_1_Analise_Lexica.Editor
 
         private void NewFile()
         {
+            if (tabControl1.TabPages.Count <= 0)
+                fileOpenNow = "";
+
             var tabControl = new CustomTab("New file", "", "", this);
             richTextBox = tabControl.getRichTextBox();
 
@@ -266,6 +269,9 @@ namespace Compilador_1_Analise_Lexica.Editor
             Token token;
             textOutput.Clear();
             textError.Clear();
+
+            if(tabControl1.TabPages.Count <= 0)
+                return;
 
             CustomTab customTab = (CustomTab)tabControl1.TabPages[tabControl1.SelectedIndex];
 
@@ -325,6 +331,9 @@ namespace Compilador_1_Analise_Lexica.Editor
 
         private void SaveFile()
         {
+            if (tabControl1.TabPages.Count <= 0)
+                return;
+
             if (!string.IsNullOrEmpty(fileOpenNow))
                 File.WriteAllText(fileOpenNow, richTextBox.Text);
             else

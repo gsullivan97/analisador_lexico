@@ -1,0 +1,17 @@
+program Teste3Inorreto {
+	
+	/+História do pudim amassado
+	pudim = "era uma vez um pudim apaixonado";
+	rua = 10;
+	amassado = false;
+
+	if (rua == 10 && amassado == true)
+	{
+		printf("Pudim amassado!");
+	}
+	else 
+	{
+		printf("Pudim feliz!");
+
+	}
+}
