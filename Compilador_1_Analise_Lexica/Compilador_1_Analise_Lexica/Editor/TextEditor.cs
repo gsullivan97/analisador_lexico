@@ -239,7 +239,7 @@ namespace Compilador_1_Analise_Lexica.Editor
             ofd.CheckFileExists = true;
             ofd.CheckPathExists = true;
             ofd.DefaultExt = "txt";
-            ofd.Filter = "Megazord files (*.mgzd)|*.mgzd";
+            ofd.Filter = "Text files (*.txt)|*.txt|Megazord files (*.mgzd)|*.mgzd";
             ofd.FilterIndex = 2;
             ofd.RestoreDirectory = true;
             ofd.ReadOnlyChecked = true;
@@ -339,7 +339,7 @@ namespace Compilador_1_Analise_Lexica.Editor
             else
             {
                 SaveFileDialog svf = new SaveFileDialog();
-                svf.Filter = "Megazord files (*.mgzd)|*.mgzd";
+                svf.Filter = "Text files (*.txt)|*.txt|Megazord files (*.mgzd)|*.mgzd";
                 svf.Title = "Save File";
 
                 if (svf.ShowDialog() == DialogResult.OK)
