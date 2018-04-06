@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Compilador_1_Analise_Lexica")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Editor de código dos Power Rangers")]
+[assembly: AssemblyDescription("Editor de código dos Power Rangers")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Compilador_1_Analise_Lexica")]
+[assembly: AssemblyCompany("com.power.rangers")]
+[assembly: AssemblyProduct("Megazord Editor")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

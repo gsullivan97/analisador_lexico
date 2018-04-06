@@ -1,0 +1,11 @@
+C:\Users\samuel.rizzon\Documents\GitHub\analisador_lexico\Compilador_1_Analise_Lexica\Compilador_1_Analise_Lexica\obj\Release\Compilador_1_Analise_Lexica.Editor.OutputForm.resources
+C:\Users\samuel.rizzon\Documents\GitHub\analisador_lexico\Compilador_1_Analise_Lexica\Compilador_1_Analise_Lexica\obj\Release\Compilador_1_Analise_Lexica.Editor.PanelError.resources
+C:\Users\samuel.rizzon\Documents\GitHub\analisador_lexico\Compilador_1_Analise_Lexica\Compilador_1_Analise_Lexica\obj\Release\Compilador_1_Analise_Lexica.Editor.TextEditor.resources
+C:\Users\samuel.rizzon\Documents\GitHub\analisador_lexico\Compilador_1_Analise_Lexica\Compilador_1_Analise_Lexica\obj\Release\Compilador_1_Analise_Lexica.Properties.Resources.resources
+C:\Users\samuel.rizzon\Documents\GitHub\analisador_lexico\Compilador_1_Analise_Lexica\Compilador_1_Analise_Lexica\obj\Release\Compilador_1_Analise_Lexica.csproj.GenerateResource.Cache
+C:\Users\samuel.rizzon\Documents\GitHub\analisador_lexico\Compilador_1_Analise_Lexica\Compilador_1_Analise_Lexica\obj\Release\Compilador_1_Analise_Lexica.csproj.CoreCompileInputs.cache
+C:\Users\samuel.rizzon\Documents\GitHub\analisador_lexico\Compilador_1_Analise_Lexica\Compilador_1_Analise_Lexica\bin\Release\MegazordEditor.exe.config
+C:\Users\samuel.rizzon\Documents\GitHub\analisador_lexico\Compilador_1_Analise_Lexica\Compilador_1_Analise_Lexica\bin\Release\MegazordEditor.exe
+C:\Users\samuel.rizzon\Documents\GitHub\analisador_lexico\Compilador_1_Analise_Lexica\Compilador_1_Analise_Lexica\bin\Release\MegazordEditor.pdb
+C:\Users\samuel.rizzon\Documents\GitHub\analisador_lexico\Compilador_1_Analise_Lexica\Compilador_1_Analise_Lexica\obj\Release\MegazordEditor.exe
+C:\Users\samuel.rizzon\Documents\GitHub\analisador_lexico\Compilador_1_Analise_Lexica\Compilador_1_Analise_Lexica\obj\Release\MegazordEditor.pdb
