@@ -21,3 +21,7 @@ D:\Workspace\analisador_lexico\Compilador_1_Analise_Lexica\Compilador_1_Analise_
 D:\Workspace\analisador_lexico\Compilador_1_Analise_Lexica\Compilador_1_Analise_Lexica\bin\Debug\MegazordEditor.pdb
 D:\Workspace\analisador_lexico\Compilador_1_Analise_Lexica\Compilador_1_Analise_Lexica\obj\Debug\MegazordEditor.exe
 D:\Workspace\analisador_lexico\Compilador_1_Analise_Lexica\Compilador_1_Analise_Lexica\obj\Debug\MegazordEditor.pdb
+D:\Workspace\analisador_lexico\Compilador_1_Analise_Lexica\Compilador_1_Analise_Lexica\bin\Debug\MegazordEditor.exe.manifest
+D:\Workspace\analisador_lexico\Compilador_1_Analise_Lexica\Compilador_1_Analise_Lexica\bin\Debug\MegazordEditor.application
+D:\Workspace\analisador_lexico\Compilador_1_Analise_Lexica\Compilador_1_Analise_Lexica\obj\Debug\MegazordEditor.exe.manifest
+D:\Workspace\analisador_lexico\Compilador_1_Analise_Lexica\Compilador_1_Analise_Lexica\obj\Debug\MegazordEditor.application
