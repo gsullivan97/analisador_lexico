@@ -117,6 +117,9 @@ namespace Compilador_1_Analise_Lexica.Lexer
                         C = (char)lookahead;
                         coluna++;
                     }
+                    else {
+                        return new Token(Tag.EOF, "EOF", linha, coluna);
+                    }
                 }
                 catch (IOException e)
                 {
