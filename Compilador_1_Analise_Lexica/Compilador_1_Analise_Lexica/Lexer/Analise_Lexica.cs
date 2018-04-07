@@ -359,7 +359,7 @@ namespace Compilador_1_Analise_Lexica.Lexer
                             coluna = 0;
                             estado = 29;
                         }
-                        else if (C < 128)
+                        else if (C < 257)
                         {
                             estado = 30;
                             lexema.Append(C);
@@ -389,7 +389,7 @@ namespace Compilador_1_Analise_Lexica.Lexer
                             coluna = 0;
                             estado = 30;
                         }
-                        else if (C < 128)
+                        else if (C < 257)
                         {
                             estado = 30;
                             lexema.Append(C);
@@ -445,7 +445,7 @@ namespace Compilador_1_Analise_Lexica.Lexer
                         break;
 
                     case 36:
-                        if (C < 128)
+                        if (C < 257)
                         {
                             estado = 37;
                             lexema.Append(C);
